@@ -14,7 +14,7 @@ export function HomeMobile() {
                         Essa é a sua oportunidade!
                     </h3>
                     <Image
-                        src="/logo.png"
+                        src="/Logo.png"
                         width={250}
                         height={150}
                         alt={"logo"}
