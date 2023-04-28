@@ -3,7 +3,9 @@ import Image from "next/image"
 
 export function HomeMobile() {
     return (
-        <div className="w-full h-screen md:bg-home-pc bg-home bg-cover bg-no-repeat ">
+        <div
+        
+        className="w-full h-screen md:bg-home-pc bg-home bg-cover bg-no-repeat border-red-500 ">
             <div className="w-full bg-gradient h-full flex justify-center items-center text-white ">
                 <div className="w-2/3">
 

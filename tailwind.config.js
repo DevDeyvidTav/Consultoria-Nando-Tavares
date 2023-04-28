@@ -15,7 +15,7 @@ module.exports = {
         'home-pc': "url(/home-pc.png)",
         'gradient': "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%)",
         
-        'header': "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%,rgba(0,0,0, 0.95) 100%)"
+        'header': "linear-gradient(to bottom, rgba(0,0,0,0.98) 0%,rgba(0,0,0, 0.98) 100%)"
       },
       
     },

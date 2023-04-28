@@ -9,7 +9,8 @@ export function FAQ(){
         Aos.init({ easing: "ease-out", duration: 300 })
     })
     return (
-        <div className="w-full ">
+        <div className="w-full "
+        id="faq">
             <div className="w-full h-full flex justify-center ">
                 <div className="w-[80%] md:max-w-[1140px] " >
                     <h2 className="text-white text-3xl mt-16 font-semibold">

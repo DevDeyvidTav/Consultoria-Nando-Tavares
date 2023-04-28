@@ -9,7 +9,8 @@ export function About() {
         Aos.init({ easing: "ease-out", duration: 300 })
     })
     return (
-        <div className="w-full">
+        <div className="w-full"
+        id="about">
             <div className="w-full h-full mt-24">
                 <div
                     className="w-[70%] md:max-w-[1140px] mx-auto">

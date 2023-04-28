@@ -38,7 +38,7 @@ export function Select({question, topic1, topic2, topic3, h}:SelectProps) {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
             >
-                <Popover.Panel className={`${h === "sm" ? "h-40" : "h-56"} w-full absolute border border-white z-30 bg-gradient backdrop-blur-lg  px-3 pt-5 rounded-b-lg`}>
+                <Popover.Panel className={`${h === "sm" ? "h-40" : "h-56"} w-full absolute border border-white z-30 bg-black backdrop-blur-lg  px-3 pt-5 rounded-b-lg`}>
                     <div className="flex absolute">
                         <ul className='flex flex-col  text-white gap-2 uppercase'>
                             <li>
