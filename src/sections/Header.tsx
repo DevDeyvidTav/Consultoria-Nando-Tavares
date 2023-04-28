@@ -35,7 +35,8 @@ export function Header() {
                     onClick={() => setOpen(!open) }>
                         PERGUNTAS FREQUENTES
                     </a>
-                    <a href="">
+                    <a href="#testimonials"
+                    onClick={() => setOpen(!open) }>
                         DEPOIMENTOS
                     </a>
                     <a href="">
