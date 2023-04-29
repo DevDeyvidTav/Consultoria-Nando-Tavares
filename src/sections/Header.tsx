@@ -13,11 +13,11 @@ export function Header() {
                     open ?
                     <AiOutlineClose
                     onClick={() => setOpen(!open)}
-                    className="text-white w-8 h-8" /> 
+                    className="text-white cursor-pointer w-8 h-8" /> 
                     
                     : <GiHamburgerMenu
                             onClick={() => setOpen(!open)}
-                            className="text-white w-8 h-8" />
+                            className="text-white cursor-pointer w-8 h-8" />
                 }
             </div>
             <div className={`${open ? "translate-y-0 backdrop-blur-lg" : "-translate-y-[150%] lg:-translate-y-[200%] backdrop-blur-0"} duration-500 lg:h-20 h-[92vh] flex  items-center bg-gradient absolute z-50 w-full`}>

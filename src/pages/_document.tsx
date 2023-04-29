@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="pt-BR">
       <Head>
-        <meta name="description" content="Oferecemos serviços de consultoria em personal training e nutrição para ajudá-lo a alcançar seus objetivos de fitness e saúde. Nossos especialistas altamente qualificados estão prontos para ajudá-lo a atingir seus objetivos de forma eficiente e sustentável. Entre em contato conosco agora para agendar sua primeira consulta."/> 
+        <meta name="description" content="w"/> 
         <title>Nando Tavares Consultoria</title>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""/>
