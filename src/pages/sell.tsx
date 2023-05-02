@@ -22,7 +22,7 @@ export default function Sell({products} : SellProps){
           const { checkout_url } = response.data;
           window.location.href = checkout_url
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       }
     return (
