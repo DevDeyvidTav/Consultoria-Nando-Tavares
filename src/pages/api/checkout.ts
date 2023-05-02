@@ -13,8 +13,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log(price_id)
 
 
-    const successUrl = `${process.env.NEXT_URL}/success`;
-    const cancelUrl = `${process.env.NEXT_URL}`;
+    const successUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}/success`;
+    const cancelUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}/sell`;
     const checkoutSession = await stripe.checkout.sessions.create({
         success_url: successUrl,
         cancel_url: cancelUrl,
