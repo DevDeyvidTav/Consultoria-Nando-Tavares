@@ -1,3 +1,4 @@
+
 import { stripe } from "@/lib/stripe"
 import axios from "axios"
 import { GetServerSideProps } from "next"
@@ -16,12 +17,15 @@ interface  SellProps{
 }
 
 export default function Sell({products} : SellProps){ 
+    const [isLoading, setIsLoading] = useState(false)
     async function getCheckout(price_id: string) {
+        setIsLoading(true)
         try {
           const response = await axios.post('/api/checkout', { price_id: price_id });
           const { checkout_url } = response.data;
           window.location.href = checkout_url
         } catch (error) {
+            setIsLoading(false)
           console.error(error);
         }
       }
@@ -45,9 +49,10 @@ export default function Sell({products} : SellProps){
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam culpa ducimus excepturi quas quidem praesentium aliquid odit .
                                     </p>
                                     <button 
+                                    disabled={isLoading}
                                     onClick={() => getCheckout(product.price_id)}
                                     className="bg-[#E63940] w-40 mt-5 py-1 text-white">
-                                        Selecionar
+                                        {isLoading? "CARREGANDO..." : "SELECIONAR"!}
                                     </button>
                                 </div>
                             )
