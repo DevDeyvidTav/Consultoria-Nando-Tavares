@@ -20,7 +20,7 @@ export function Testimonials() {
                 </h2>
                 <div 
                 data-aos="fade"
-                className="flex flex-col gap-5">
+                className="flex flex-col gap-5 text-white">
                     <TestimonialBox/>
                     <TestimonialBox/>
                 </div>

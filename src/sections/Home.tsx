@@ -1,11 +1,12 @@
 import Image from "next/image"
+import Link from "next/link"
 
 
 export function HomeMobile() {
     return (
         <div
-        
-        className="w-full h-screen md:bg-home-pc bg-home bg-cover bg-no-repeat border-red-500 ">
+
+            className="w-full h-screen md:bg-home-pc bg-home bg-cover bg-no-repeat border-red-500 ">
             <div className="w-full bg-gradient h-full flex justify-center items-center text-white ">
                 <div className="w-2/3">
 
@@ -20,11 +21,15 @@ export function HomeMobile() {
                         width={250}
                         height={150}
                         alt={"logo"}
-                        className="mx-auto mb-5"/>
+                        className="mx-auto mb-5" />
                     <div className="w-full flex justify-center">
-                    <button className="w-4/5 md:w-72 md:mx-auto text-xl hover:shadow-[#E63940] bg-[#E63940] relative hover:duration-500 hover:scale-110 hover:ease-in-out  py-2 rounded-md hover:shadow-2xl">
-                        Participe dessa jornada!
-                    </button>
+                        <button className="w-4/5 md:w-72 md:mx-auto text-xl hover:shadow-[#E63940] bg-[#E63940] relative hover:duration-500 hover:scale-110 hover:ease-in-out  py-2 rounded-md hover:shadow-2xl">
+                            <Link
+                                className='w-full h-full'
+                                href="/sell">
+                                Participe dessa jornada!
+                            </Link>
+                        </button>
                     </div>
                 </div>
             </div>

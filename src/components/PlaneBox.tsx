@@ -7,6 +7,7 @@ interface PlaneBoxProps {
 import 'aos/dist/aos.css'
 import { useEffect } from "react";
 import Aos from 'aos'
+import Link from 'next/link'
 
 
 export function PlaneBox({emphasis, plane, fidelity, aosDelay}:PlaneBoxProps){
@@ -35,8 +36,12 @@ export function PlaneBox({emphasis, plane, fidelity, aosDelay}:PlaneBoxProps){
             <p className="font-light mt-5">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tenetur hic dolores excepturi neque, nulla sequi dolorem nam dolore quod repellend.
             </p>
-            <button className={`${emphasis? "bg-zinc-950 ": "bg-[#E63940]"} mt-5 py-2 px-4 `}>
+            <button  className={`${emphasis? "bg-zinc-950 ": "bg-[#E63940]"} mt-5 py-2 px-4 `}>
+                <Link 
+                className='w-full h-full'
+                href="/sell">
                 COMPRAR!
+                </Link>
             </button>
         </div>
     )

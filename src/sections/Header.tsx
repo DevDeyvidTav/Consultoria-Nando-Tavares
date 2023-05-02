@@ -47,7 +47,7 @@ export function Header() {
                     </a>
                     <Link
                         className="bg-[#E63940] font-bold w-40 py-2 flex justify-center items-center rounded relative hover:scale-110 hover:duration-500 hover:ease-out "
-                        href="/">
+                        href="/sell">
                         ADIQUIRA JÁ!
                     </Link>
                 </div>
