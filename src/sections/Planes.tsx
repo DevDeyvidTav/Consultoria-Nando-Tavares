@@ -10,6 +10,7 @@ export function Planes() {
     })
     return (
         <div
+        id="planes"
             className="w-full mt-10 h-screen">
             <div className="w-[80%] mx-auto h-full">
                 <h2

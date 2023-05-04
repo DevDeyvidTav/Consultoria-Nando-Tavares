@@ -1,4 +1,3 @@
-import { apiSecret } from "@/lib/stripe";
 import { About } from "@/sections/About";
 import { FAQ } from "@/sections/Faq";
 import { Header } from "@/sections/Header";

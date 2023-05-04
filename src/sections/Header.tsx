@@ -39,7 +39,7 @@ export function Header() {
                     onClick={() => setOpen(!open) }>
                         DEPOIMENTOS
                     </a>
-                    <a href="">
+                    <a href="#planes">
                         PLANOS
                     </a>
                     <a href="">
