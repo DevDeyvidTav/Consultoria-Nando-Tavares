@@ -6,12 +6,17 @@ mercadopago.configure({
 })
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { collection_id } = req.body;
+  const paymentId = Number(req.query.payment_id)
 
   try {
-    const transaction = await mercadopago.payment.get(collection_id);
-    console.log(transaction)
-    res.json(transaction);
+    const transaction = await mercadopago.payment.get(paymentId);
+    res.json({
+      title: transaction.body.additional_info.items[0].title,
+      amount: Number(transaction.body.additional_info.items[0].unit_price),
+      clientName: transaction.body.card.cardholder.name,
+      cpf: transaction.body.card.cardholder.identification.number,
+      installments: transaction.body.installments
+    });
     
   } catch (err) {
     console.error(err);

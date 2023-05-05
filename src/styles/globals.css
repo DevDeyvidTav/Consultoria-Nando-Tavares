@@ -6,3 +6,19 @@
   font-family: 'Oswald', sans-serif;
   scroll-behavior: smooth;
 }
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

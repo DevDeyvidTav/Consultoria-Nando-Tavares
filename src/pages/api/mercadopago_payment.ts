@@ -12,8 +12,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     items: [
       {
         title: product,
-        unit_price: amount / installments,
-        quantity: installments,
+        unit_price: amount ,
+        quantity: 1,
       },
     ],
     payment_methods: {
