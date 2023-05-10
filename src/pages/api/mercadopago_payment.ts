@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       installments: installments,
     },
     back_urls: {
-      success: `${process.env.NEXT_PUBLIC_VERCEL_URL}/success`,
+      success: `${process.env.NEXT_PUBLIC_VERCEL_URL}/preferences/success`,
       failure: `${process.env.NEXT_PUBLIC_VERCEL_URL}/sell`,
     },
 

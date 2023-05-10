@@ -32,34 +32,19 @@ export default function Sell() {
                 </h2>
                 <div className="flex md:flex-row flex-col mt-12 gap-5">
                     <BuyPlan
-                        isLoading={isLoading}
-                        onclick={() => getCheckout({
-                            product: 'Plano Mensal',
-                            installments: 1,
-                            amount: 300
-                        })}
+                        link="/preapproval/add-email"
                         name="Plano mensal"
                         duration="mês"
                         price={300}
                         description="renovação automática a cada 30 dias, é possível cancelar aqui nesse mesmo site" />
                     <BuyPlan
-                        isLoading={isLoading}
-                        onclick={() => getCheckout({
-                            product: 'Plano Bimestral',
-                            installments: 6,
-                            amount: 300
-                        })}
+                        link="/preferences/bimonthly"
                         name="Plano Bimestral"
                         duration="2 meses"
                         price={500}
                         description="parcelamento em até 6x em todos os cartões, boleto e pix" />
                     <BuyPlan
-                        isLoading={isLoading}
-                        onclick={() => getCheckout({
-                            product: 'Plano Trimestral',
-                            installments: 6,
-                            amount: 600
-                        })}
+                        link="/preferences/trimonthly"
                         name="Plano Trimestral"
                         duration="3 meses"
                         price={600}

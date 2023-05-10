@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
+    "@sendgrid/mail": "^7.7.0",
     "@stripe/stripe-js": "^1.52.1",
     "@types/node": "18.16.0",
     "@types/react": "18.2.0",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.4",
-    "@types/mercadopago": "^1.5.8"
+    "@types/mercadopago": "^1.5.8",
+    "@types/nodemailer": "^6.4.7"
   }
 }
