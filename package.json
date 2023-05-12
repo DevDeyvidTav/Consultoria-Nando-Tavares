@@ -19,6 +19,7 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
+    "js-cookie": "^3.0.5",
     "mercadopago": "^1.5.15",
     "next": "13.3.1",
     "postcss": "8.4.23",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.4",
+    "@types/js-cookie": "^3.0.3",
     "@types/mercadopago": "^1.5.8",
     "@types/nodemailer": "^6.4.7"
   }

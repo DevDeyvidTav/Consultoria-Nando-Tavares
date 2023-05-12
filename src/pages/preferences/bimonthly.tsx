@@ -1,30 +1,80 @@
 import { BackButton } from "@/components/BackButton";
 import { ProceedButton } from "@/components/ProceedButton";
 import { getPreference } from "@/lib/mercadopago";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { BsCheck } from "react-icons/bs";
+import { FiMail, FiUser } from "react-icons/fi";
+import Cookies from 'js-cookie';
 
 
 export default function Handler() {
-    const [isLoading, setIsLoading ] = useState(false)
-    async function handlePayment (){
+    const [isLoading, setIsLoading ] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+
+    async function handlePayment (e: FormEvent){
+        e.preventDefault()
         const request = {
             amount: 500,
             product: "Plano Bimestral",
             installments: 6
         }
-        setIsLoading(true)
-        await getPreference(request)
-        setIsLoading(false)
+
+        // Save name and email to localStorage
+        Cookies.set('name', name);
+        Cookies.set('email', email);
+
+        setIsLoading(true);
+        await getPreference(request);
+        setIsLoading(false);
     }
+
     return (
         <div className="w-screen h-screen">
             <div className="w-4/5 md:w-[800px] xl:w-[1140px] mx-auto h-full flex flex-col  text-white">
                 <h2 className="text-4xl font-bold mt-20 w-auto">
                     Plano Bimestral
                 </h2>
-              
-                <ul className="flex flex-col my-10 text-zinc-400">
+
+                <form onSubmit={e => handlePayment(e)}>
+                    <div className="relative my-5">
+                        <label htmlFor="name" className="sr-only">
+                            Name
+                        </label>
+                        <input
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                            type="text"
+                            id="name"
+                            name="name"
+                            className="block w-full md:w-3/5 px-4 py-3 rounded-md bg-zinc-900 border-transparent text-zinc-300 border-2 focus:duration-500 focus:transition-all focus:ease-linear focus:outline-none  focus:border-2 focus:border-white focus:ring-0"
+                            placeholder="Digite seu nome"
+                            required
+                        />
+                        <div className="absolute inset-y-0 right-0 md:right-[330px] xl:right-[460px] flex items-center px-2 pointer-events-none">
+                            <FiUser className="text-gray-400" />
+                        </div>
+                    </div>
+
+                    <div className="relative">
+                        <label htmlFor="email" className="sr-only">
+                            Email
+                        </label>
+                        <input
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            type="email"
+                            id="email"
+                            name="email"
+                            className="block w-full md:w-3/5 px-4 py-3 rounded-md bg-zinc-900 border-transparent text-zinc-300 border-2 focus:duration-500 focus:transition-all focus:ease-linear focus:outline-none  focus:border-2 focus:border-white focus:ring-0"
+                            placeholder="Digite seu email"
+                            required
+                        />
+                        <div className="absolute inset-y-0 right-0 md:right-[330px] xl:right-[460px] flex items-center px-2 pointer-events-none">
+                            <FiMail className="text-gray-400" />
+                        </div>
+                    </div>
+                    <ul className="flex flex-col my-10 text-zinc-400">
                     <li className="flex items-center">
                         <BsCheck/>Renovação não é automática
                     </li>
@@ -40,14 +90,17 @@ export default function Handler() {
                     <li className="flex items-center">
                         <BsCheck />  Acesso à 2 meses com 15% de desconto em relação ao plano mensal
                     </li>
-
-
                 </ul>
-
-                <ProceedButton 
-                onClick={handlePayment}
-                isLoading={isLoading}/>
+                    <BackButton/>
+                    <ProceedButton 
+                    isLoading={isLoading}
+                />
                 <BackButton/>
+                </form>
+
+               
+
+
             </div>
         </div>
     )

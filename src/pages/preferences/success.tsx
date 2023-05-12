@@ -4,10 +4,12 @@ import { GetServerSideProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import img from "/Logo.png"
+import Cookies from 'js-cookie';
 
 
 export default function Success(id: any) {
+    const name = Cookies.get('name');
+    const email = Cookies.get('email');
     const [emailSent, setEmailSent] = useState(false)
     const payment_id = id.id
     const [details, setDetails] = useState<any>()
@@ -27,24 +29,17 @@ export default function Success(id: any) {
 
     useEffect(() => {
         if (details && !emailSent) {
+
             sendEmail({
-                email: "deydeyvid2022@gmail.com",
+                email: email? email : "deydeyvid2022@gmail.com",
                 subject: `inscrição do cliente ${details?.clientName.toUpperCase()}`,
-                body: `o cliente ${details?.clientName.toUpperCase()} de cpf ${details?.cpf} contratou o ${details?.title} `,
-                html: `<strong style={{color: "red"}}>Consultoria Nando Tavares</strong>
-                <p>Parabéns Nando, o cliente ${details?.clientName.toUpperCase()} de cpf ${details?.cpf} contratou o ${details?.title}  </p>
-                `
-            });
-            sendEmail({
-                email: "deydeyvid2022@gmail.com",
-                subject: `inscrição do cliente ${details?.clientName.toUpperCase()}`,
-                body: `Parabéns ${details?.clientName.toUpperCase()}, você contratou o ${details?.title} `,
+                body: `Parabéns ${name?.toUpperCase()}, você contratou o ${details?.title} `,
                 html: `<div style="font-family: Arial, sans-serif; font-size: 16px; color: #000;">
                 <div style="background-color: #000; padding: 20px;">
                     <h1 style="color: #ff0000; text-align: center;">Consultoria Nando Tavares</h1>
                 </div>
                 <div style="padding: 20px;">
-                    <p>Olá <strong>${details?.clientName.toUpperCase()}</strong>,</p>
+                    <p>Olá <strong>${name?.toUpperCase()}</strong>,</p>
                     <p>Parabéns! Você contratou o <strong>${details?.title}</strong> com a Consultoria Nando Tavares.</p>
                     <p>Para acessar, clique no botão abaixo:</p>
                     <div style="text-align: center; margin-top: 20px;">

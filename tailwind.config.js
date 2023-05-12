@@ -11,11 +11,12 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'home': "url(/img-home.png)",
+        'home': "url(/Home-mobile.jpeg)",
         'home-pc': "url(/home-pc.png)",
-        'gradient': "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%)",
+        'gradient': "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%)",
         
-        'header': "linear-gradient(to bottom, rgba(0,0,0,0.98) 0%,rgba(0,0,0, 0.98) 100%)"
+        'header': "linear-gradient(to bottom, rgba(0,0,0,0.98) 0%,rgba(0,0,0, 0.98) 100%)",
+        'suport': "url(/suport.jpeg)",
       },
       
     },

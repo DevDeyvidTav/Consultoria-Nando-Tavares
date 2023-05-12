@@ -11,8 +11,8 @@ export function Planes() {
     return (
         <div
         id="planes"
-            className="w-full mt-10 h-screen">
-            <div className="w-[80%] mx-auto h-full">
+            className="w-full mt-10 h-auto">
+            <div className="w-[80%] py-20 mx-auto h-full">
                 <h2
                     data-aos="fade"
                     className="text-white text-3xl mb-10 mt-10 font-bold uppercase" >Confira nossos planos</h2>

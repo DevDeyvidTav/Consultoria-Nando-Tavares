@@ -1,12 +1,18 @@
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect } from "react";
+import Aos from 'aos'
+
 
 
 export function HomeMobile() {
+    useEffect(() => {
+        Aos.init({ easing: "ease-out", duration: 700 })
+    })
     return (
         <div
-
-            className="w-full h-screen md:bg-home-pc bg-home bg-cover bg-no-repeat border-red-500 ">
+            data-aos="fade-in"
+            className="w-full h-screen xl:bg-home-pc bg-home bg-cover bg-no-repeat border-red-500 ">
             <div className="w-full bg-gradient h-full flex justify-center items-center text-white ">
                 <div className="w-2/3">
 

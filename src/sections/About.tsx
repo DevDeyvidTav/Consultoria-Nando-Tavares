@@ -46,10 +46,10 @@ export function About() {
                     className="flex flex-col w-full gap-5 md:flex-row">
                         <Image
                             className="mx-auto md:mx-0 rounded-lg mt-10"
-                            src="/NandoTavares.png"
+                            src="/Nando.png"
                             width={350}
-                            height={500}
-                            quality={90}
+                            height={600}
+                            quality={100}
                             alt="Nando tavares" />
                         <div className="md:flex md:flex-col lg:ml-10 md:justify-end">
                             <h3 className="text-[#E63940] font-bold mt-5 ">NANDO TAVARES</h3>

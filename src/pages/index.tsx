@@ -4,6 +4,7 @@ import { Header } from "@/sections/Header";
 import { HomeMobile } from "@/sections/Home";
 import { Planes } from "@/sections/Planes";
 import { Testimonials } from "@/sections/Testimonials";
+import { Suport } from "@/sections/suport";
 
 export default function Index() {
   return (
@@ -14,6 +15,7 @@ export default function Index() {
       <FAQ/>
       <Testimonials/>
       <Planes/>
+      <Suport/>
     </main>
   )
 }
