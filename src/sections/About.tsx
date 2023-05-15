@@ -54,7 +54,11 @@ export function About() {
                         <div className="md:flex md:flex-col lg:ml-10 md:justify-end">
                             <h3 className="text-[#E63940] font-bold mt-5 ">NANDO TAVARES</h3>
                             <p className="text-white  pb-5">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur tenetur, modi nostrum exercitationem quam id aspernatur cumque veritatis, aliquam ea libero, expedita saepe quae nihil commodi non alias. Quidem, distinctio.
+                            Meu nome é Ernandes Farias Tavares “ NANDO TAVARES” , formado pela UNIVERSIDADE
+                             FEDERAL DE PERNAMBUCO, 2021. Inserido na musculação desde 2012. Com cursos no 
+                             Arnaldo Classic 2023, Congresso Brasileiro de Medicina e Saúde e entre outros.
+                              Expert em construção de glúteos e coxas. 
+
                             </p>
                         </div>
                     </div>
@@ -71,7 +75,7 @@ export function About() {
                         <div className="md:flex md:flex-col lg:ml-10 md:justify-end">
                             <h3 className="text-[#E63940] font-bold mt-5 ">JACIARA MENDONÇA</h3>
                             <p className="text-white  pb-5">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur tenetur, modi nostrum exercitationem quam id aspernatur cumque veritatis, aliquam ea libero, expedita saepe quae nihil commodi non alias. Quidem, distinctio.
+                            Meu nome é Jaciara Mendonça, formada pela UNIVERSIDADE MAURÍCIO DE NASSAU, 2011. Expert em Emagrecimento e Estética.
                             </p>
                         </div>
                     </div>

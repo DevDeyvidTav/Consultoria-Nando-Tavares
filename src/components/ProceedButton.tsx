@@ -1,6 +1,6 @@
 interface ProceedButtonProps {
     isLoading: boolean;
-    onClick?: () => void;
+    onClick?: () => void ;
   }
   
 

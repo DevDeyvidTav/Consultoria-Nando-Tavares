@@ -1,12 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi"
-import { AiOutlineClose } from "react-icons/ai"
+import { useState, useEffect } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
+
 export function Header() {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const position = window.pageYOffset;
+            setScrollPosition(position);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <div className="w-full h-16 fixed bg-header z-50">
+        <div className={`w-full h-16 fixed z-50 duration-500 ${scrollPosition > 0 ? 'bg-black' : 'bg-transparent'}`}>
             <div className="px-5 md:px-0 max-w-[1140px] mx-auto w-full flex items-center h-full justify-between">
                 <Image src="/logo-reduzida.png" width={50} height={50} alt="logo" />
                 {
@@ -53,5 +69,5 @@ export function Header() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

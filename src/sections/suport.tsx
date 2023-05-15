@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BsCheck } from "react-icons/bs";
 
 export function Suport() {
@@ -15,14 +16,14 @@ export function Suport() {
                         <a href="">
                             Problemas tecnicos?
                         </a>
-                        <a href="">
+                        <Link href="/cancelment">
                             Deseja cancelar seu plano mensal?
-                        </a>
+                        </Link>
                     </div>
 
                 </div>
                 <div className="w-full h-20 bg-gradient uppercase grid grid-cols-3 backdrop-blur-sm mt-72">
-                    <div className="justify-center w-full h-full items-center flex text-white">
+                    <div className="justify-center  w-full h-full items-center flex text-white">
                        <BsCheck/> suporte diário
                     </div>
                     <div className="border-l-2 border-l-white justify-center w-full h-full items-center flex text-white">
