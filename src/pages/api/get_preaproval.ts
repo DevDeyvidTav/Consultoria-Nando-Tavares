@@ -1,20 +1,20 @@
 import { api } from "@/lib/axios";
-import mercadopago from "mercadopago";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { email } = req.query;
+  const { payer_email } = req.query;
   try {
     const response = await api.get("/preapproval/search", {
       params: {
-        email: "nando.com"
+        payer_email: payer_email
       }
     });
     const searchResult = response.data;
+    console.log(searchResult.results[0].id)
     if (searchResult.results.length === 0) {
       res.status(404).json({ message: "Nenhuma assinatura encontrada para este e-mail" });
     } else {
-      res.status(200).json(searchResult);
+      res.status(200).json(searchResult.results[0].id);
     }
   } catch (error) {
     console.error(error);

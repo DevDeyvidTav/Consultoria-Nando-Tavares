@@ -7,13 +7,13 @@ import { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 
 
+
 export default function Success(id: any) {
     const name = Cookies.get('name');
     const email = Cookies.get('email');
     const [emailSent, setEmailSent] = useState(false)
     const payment_id = id.id
     const [details, setDetails] = useState<any>()
-
     const getPaymentDetails = async () => {
         try {
             const response = await axios.get(`/api/transaction?payment_id=${payment_id}`)
@@ -22,7 +22,6 @@ export default function Success(id: any) {
             console.error(error)
         }
     }
-
     useEffect(() => {
         getPaymentDetails();
     }, []);
@@ -31,7 +30,7 @@ export default function Success(id: any) {
         if (details && !emailSent) {
 
             sendEmail({
-                email: email? email : "deydeyvid2022@gmail.com",
+                email: email ? email : "deydeyvid2022@gmail.com",
                 subject: `inscrição do cliente ${details?.clientName.toUpperCase()}`,
                 body: `Parabéns ${name?.toUpperCase()}, você contratou o ${details?.title} `,
                 html: `<div style="font-family: Arial, sans-serif; font-size: 16px; color: #000;">
@@ -53,66 +52,78 @@ export default function Success(id: any) {
         }
     }, [details, emailSent]);
     return (
-        <div className="text-white w-full h-screen ">
-            <div className="w-[80%] mx-auto flex flex-col h-full lg:items-center lg:gap-32 lg:justify-center lg:flex-row items-start text-center md:text-start gap-5">
+        <div className="text-white md:bg-home-pc w-screen h-screen bg-thanks bg-cover bg-no-repeat">
+            <div className="bg-gradient h-full">
+                <div className="w-[80%]  mx-auto flex flex-col h-full lg:items-center lg:gap-32 lg:justify-center lg:flex-row items-start text-center md:text-start gap-5">
 
-                <div className="text-2xl ">
-                    <div className="" >
-                        <Image
-                            src="/Logo.png"
-                            width={250}
-                            height={150}
-                            alt={"logo"}
-                            className="mx-auto mb-5 mt-2 lg:hidden" />
-                        <h2 className="text-3xl font-semibold ">
-                            OBRIGADO,
-                        </h2>
-                        <h3>
-                            POR ESCOLHER A CONSULTORIA NANDO TAVARES,
-                        </h3>
-                        <p>
-                            VAMOS JUNTOS CONQUISTAR O SHAPE QUE VOCÊ TANTO DESEJA.
-                        </p>
-                    </div>
+                    <div className="text-2xl ">
+                        <div className="" >
+                            <Image
+                                src="/Logo.png"
+                                width={250}
+                                height={150}
+                                alt={"logo"}
+                                className="mx-auto mb-5 mt-2 lg:hidden" />
+                            <h2 className="text-3xl font-semibold ">
+                                OBRIGADO,
+                            </h2>
+                            <h3>
+                                POR ESCOLHER A CONSULTORIA NANDO TAVARES,
+                            </h3>
+                            <p>
+                                VAMOS JUNTOS CONQUISTAR O SHAPE QUE VOCÊ TANTO DESEJA.
+                            </p>
+                        </div>
 
-                    <div>
-                        <p>
-                            EM INSTANTES
-                            VOCÊ SERA REDIRECIONADO PARA NOSSO WHATSAPP, ONDE VAMOS AVALIAR SEU DIA A DIA,
-                            E MONTAREMOS O MELHOR PLANEJAMENTO, PARA QUE VOCÊ CONQUISTE SEUS OBJETIVOS!
-                        </p>
-                        <div className="text-zinc-400 font-extralight text-sm">
-                            CASO VOCÊ NÃO SEJA REDIRECIONADO,
-                            <a
-                                className="text-[#E63940] underline"
-                                href="#">CLIQUE AQUI
-                            </a>
-                        </div>
-                        <div className="mt-5">
-                            <Link
-                                className="bg-[#E63940] py-1 flex justify-center px-6 text-xl"
-                                href="/">
-                                Voltar para a tela inicial
-                            </Link>
+                        <div>
+                            <p>
+                                EM INSTANTES
+                                VOCÊ SERA REDIRECIONADO PARA NOSSO WHATSAPP, ONDE VAMOS AVALIAR SEU DIA A DIA,
+                                E MONTAREMOS O MELHOR PLANEJAMENTO, PARA QUE VOCÊ CONQUISTE SEUS OBJETIVOS!
+                            </p>
+                            <div className="text-zinc-400 font-extralight text-sm">
+                                CASO VOCÊ NÃO SEJA REDIRECIONADO,
+                                <a
+                                    className="text-[#E63940] underline"
+                                    href="#">CLIQUE AQUI
+                                </a>
+                            </div>
+                            <div className="mt-5">
+                                <Link
+                                    className="bg-[#E63940] py-1 flex justify-center px-6 text-xl"
+                                    href="/">
+                                    Voltar para a tela inicial
+                                </Link>
+                            </div>
                         </div>
                     </div>
+                    <Image
+                        src="/Logo.png"
+                        width={250}
+                        height={150}
+                        alt={"logo"}
+                        className="mx-auto mb-5 mt-2 hidden lg:flex" />
                 </div>
-                <Image
-                    src="/Logo.png"
-                    width={250}
-                    height={150}
-                    alt={"logo"}
-                    className="mx-auto mb-5 mt-2 hidden lg:flex" />
             </div>
         </div>
     )
 }
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({ query, res }) => {
     const paymentId = Number(query.payment_id);
+
+    if (!paymentId) {
+
+        res.setHeader('Location', '/');
+        res.statusCode = 302;
+        res.end();
+        return {
+            props: {},
+        };
+    }
 
     return {
         props: {
             id: paymentId,
-        }
-    }
+        },
+    };
 };

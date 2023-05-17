@@ -16,12 +16,10 @@ export default function Handler() {
     async function handlePayment(e: FormEvent) {
         e.preventDefault()
         const request = {
-            amount: 500,
+            amount: 249.9,
             product: "Plano Bimestral",
             installments: 6
         }
-
-        // Save name and email to localStorage
         Cookies.set('name', name);
         Cookies.set('email', email);
 

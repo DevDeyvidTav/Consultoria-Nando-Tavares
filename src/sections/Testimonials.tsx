@@ -12,7 +12,7 @@ export function Testimonials() {
         <div 
         id="testimonials"
         className="w-full h-auto ">
-            <div className="w-[90%] py-10 mx-auto">
+            <div className="w-[90%] md:w-[1140px] py-10 mx-auto">
                 <h2 
                 data-aos="fade"
                 className="text-white uppercase w-full mb-10 text-center text-3xl font-semibold">

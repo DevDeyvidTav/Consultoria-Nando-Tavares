@@ -55,10 +55,14 @@ export function Header() {
                     onClick={() => setOpen(!open) }>
                         DEPOIMENTOS
                     </a>
-                    <a href="#planes">
+                    <a 
+                    onClick={() => setOpen(!open) }
+                    href="#planes">
                         PLANOS
                     </a>
-                    <a href="">
+                    <a 
+                    onClick={() => setOpen(!open) }
+                    href="#suport">
                         SUPORTE
                     </a>
                     <Link

@@ -18,5 +18,18 @@ export async function getPreApproval(email: string) {
         window.location.href = url
     } catch (error) {
         console.error(error);
+        return "erro"
+    }
+}
+export async function cancelment(id: string){
+    try {
+        const response = await axios.put('/api/cancelment', {
+            params:{
+                cancelmentId: id
+            }
+        })
+        return response.data
+    } catch (error) {
+        return "erro"
     }
 }

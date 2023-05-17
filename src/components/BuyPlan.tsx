@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface BuyPlanProps {
     link: string;
-    price: number;
+    price: string;
     duration: string;
     description: string;
     name: string;

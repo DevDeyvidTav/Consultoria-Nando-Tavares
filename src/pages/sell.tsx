@@ -11,19 +11,6 @@ interface checkoutRequest {
 }
 
 export default function Sell() {
-
-    const [isLoading, setIsLoading] = useState(false)
-    async function getCheckout(request: checkoutRequest) {
-        setIsLoading(true)
-        try {
-            const response = await axios.post('/api/mercadopago_payment', request)
-            const {url} = response.data
-            window.location.href = url
-        } catch (error) {
-            setIsLoading(false)
-            console.error(error);
-        }
-    }
     return (
         <div className="w-screen h-auto max-w-full">
             <div className="w-[80%] mx-auto text-center h-full  ">
@@ -35,19 +22,19 @@ export default function Sell() {
                         link="/preapproval/add-email"
                         name="Plano mensal"
                         duration="mês"
-                        price={300}
+                        price="149,90"
                         description="renovação automática a cada 30 dias, é possível cancelar aqui nesse mesmo site" />
                     <BuyPlan
                         link="/preferences/bimonthly"
                         name="Plano Bimestral"
                         duration="2 meses"
-                        price={500}
+                        price="249,90"
                         description="parcelamento em até 6x em todos os cartões, boleto e pix" />
                     <BuyPlan
                         link="/preferences/trimonthly"
                         name="Plano Trimestral"
                         duration="3 meses"
-                        price={600}
+                        price="329,90"
                         description="parcelamento em até 6x em todos os cartões, boleto e pix" />
 
                 </div>
