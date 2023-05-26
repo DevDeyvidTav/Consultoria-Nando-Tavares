@@ -8,9 +8,8 @@ export interface PreApprovalProps {
     email: string;
 }
 
-export interface SendEmailProps {
-    email: string, 
-    subject: string,
-    body: string,
-    html: string
+export interface EmailData {
+    to: string;
+    subject: string;
+    html: string;
 }

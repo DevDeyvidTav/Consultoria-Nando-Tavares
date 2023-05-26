@@ -28,11 +28,9 @@ export default function Success(id: any) {
 
     useEffect(() => {
         if (details && !emailSent) {
-
-            sendEmail({
-                email: email ? email : "deydeyvid2022@gmail.com",
-                subject: `inscrição do cliente ${details?.clientName.toUpperCase()}`,
-                body: `Parabéns ${name?.toUpperCase()}, você contratou o ${details?.title} `,
+            const emailData = {
+                to: email ? email : "deydeyvid2022@gmail.com",
+                subject: `inscrição do cliente ${name?.toUpperCase()}`,
                 html: `<div style="font-family: Arial, sans-serif; font-size: 16px; color: #000;">
                 <div style="background-color: #000; padding: 20px;">
                     <h1 style="color: #ff0000; text-align: center;">Consultoria Nando Tavares</h1>
@@ -47,7 +45,9 @@ export default function Success(id: any) {
                 </div>
             </div>
                 `
-            });
+            }
+
+            sendEmail(emailData);
             setEmailSent(true);
         }
     }, [details, emailSent]);

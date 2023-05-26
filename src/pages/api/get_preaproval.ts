@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (searchResult.results.length === 0) {
       res.status(404).json({ message: "Nenhuma assinatura encontrada para este e-mail" });
     } else {
-      res.status(200).json(searchResult.results[0].id);
+      res.status(200).json(searchResult);
     }
   } catch (error) {
     console.error(error);

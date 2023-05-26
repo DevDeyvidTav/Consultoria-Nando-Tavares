@@ -1,16 +1,11 @@
-import axios from "axios"
-import { SendEmailProps } from "./@types"
+import axios from "axios";
+import { EmailData } from "./@types";
 
-export const sendEmail = async ({ email, subject, body, html }: SendEmailProps) => {
+export async function sendEmail(emailData: EmailData) {
     try {
-        const message = {
-            to: email,
-            subject,
-            text: body,
-            html
-        }
-        await axios.post('/api/notifications', message)
+      const response = await axios.post('/api/notifications', emailData);
+      console.log(response.data.message);
     } catch (error) {
-        console.error(error)
+      console.error('Erro ao enviar o e-mail:', error);
     }
-}
+  }

@@ -1,8 +1,8 @@
 import mercadopago from "mercadopago";
 import { NextApiRequest, NextApiResponse } from "next";
-
+const apikey = String(process.env.ACCESS_TOKEN_TEST)
 mercadopago.configure({
-  access_token: 'TEST-7635355043857059-050908-c368fb73c40daec090d0abef6fbc0a1f-1370581130'
+  access_token: apikey
 })
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

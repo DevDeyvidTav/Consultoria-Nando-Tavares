@@ -14,14 +14,15 @@ export default function Handler() {
         setLoading(true)
 
         try {
+            
             const response = await getBilling(email)
             if (response === "error") {
                 return setError('Não encontramos assinaturas ativas em seu email')
             }
-            sendEmail({
-                email: "deydeyvid2022@gmail.com",
+            const filteredResponse = response.results?.filter((result: any) => result.status !== "cancelled")
+            const emailData = {
+                to: "deydeyvid2022@gmail.com",
                 subject: `Cancelamento do cliente ${email.toUpperCase()}`,
-                body: `Que pena`,
                 html: `<div style="font-family: Arial, sans-serif; font-size: 16px; color: #000;">
                 <div style="background-color: #000; padding: 20px;">
                     <h1 style="color: #ff0000; text-align: center;">Consultoria Nando Tavares</h1>
@@ -31,16 +32,18 @@ export default function Handler() {
                     <p>Uma pena que você queira cancelar o <strong>Plano mensal</strong> com a Consultoria Nando Tavares.</p>
                     <p>Esperamos vê-lo novamente em breve</p>
 
-                    <p>ID da transação: ${response}</p>
+                    <p>ID da transação: ${filteredResponse[0].id}</p>
                     <p>Para cancelar, clique no botão abaixo:</p>
                     <div style="text-align: center; margin-top: 20px;">
-                    <a href="${process.env.NEXT_PUBLIC_VERCEL_URL}/cancelment/success?payment_id=${response}" target="_blank" style="background-color: #ff0000; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Cancelar</a>
+                    <a href="${process.env.NEXT_PUBLIC_VERCEL_URL}/cancelment/confirm?payment_id=${filteredResponse[0].id}" target="_blank" style="background-color: #ff0000; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Cancelar</a>
 
                     </div>
                 </div>
             </div>
                 `
-            });
+            }
+  
+            sendEmail(emailData);
         } catch (error) {
             console.error(error)
         }

@@ -1,15 +1,16 @@
 import mercadopago from "mercadopago";
 import { NextApiRequest, NextApiResponse } from "next";
 
+
+const apikey = String(process.env.ACCESS_TOKEN_TEST)
  mercadopago.configure({
-  access_token: 'TEST-7635355043857059-050908-c368fb73c40daec090d0abef6fbc0a1f-1370581130',
+  access_token: apikey
 
 })
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const Email = String( req.body.email )
-    console.log(Email)
     const url = String(process.env.NEXT_PUBLIC_VERCEL_URL)
     try {
       if (req.method !== 'POST') {
@@ -26,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               frequency_type: 'months',
               currency_id: "BRL"
           },
-          back_url: `https://consultoria-nando-tavares.vercel.app/sell`,
+          back_url: `${url}/sell`,
           payer_email: Email
       })
     

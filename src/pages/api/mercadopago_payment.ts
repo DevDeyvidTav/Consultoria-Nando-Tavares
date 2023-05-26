@@ -28,6 +28,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const response = await mercadopago.preferences.create(preference);
 
-  res.json({ url: response.body.init_point });
+  res.json({url: response.body.init_point});
   }
   

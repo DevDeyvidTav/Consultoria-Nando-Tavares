@@ -5,6 +5,7 @@ import { HomeMobile } from "@/sections/Home";
 import { Planes } from "@/sections/Planes";
 import { Testimonials } from "@/sections/Testimonials";
 import { Suport } from "@/sections/suport";
+import { ToastContainer } from "react-toastify";
 
 export default function Index() {
   return (
