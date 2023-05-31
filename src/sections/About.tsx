@@ -39,7 +39,7 @@ export function About() {
                     data-aos="fade"
                     className="text-zinc-400 mt-4">
                         Com profissionais altamente qualificados e experientes
-                        faremos você a construir o shape que você tanto deseja.
+                        faremos você a construir o shape que tanto deseja.
                     </p>
                     <div
                     data-aos="fade"

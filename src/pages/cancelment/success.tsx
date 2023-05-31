@@ -34,6 +34,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query, res }) => 
 
       res.setHeader('Location', '/');
       res.statusCode = 302;
+      
       res.end();
       return {
         props: {},

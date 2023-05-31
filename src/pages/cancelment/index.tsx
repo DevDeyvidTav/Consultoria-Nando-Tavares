@@ -3,18 +3,19 @@ import { EmailInput } from "@/components/EmailInput";
 import { ProceedButton } from "@/components/ProceedButton";
 import { getBilling } from "@/lib/getBilling";
 import { sendEmail } from "@/lib/sendGrid";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 export default function Handler() {
+    const [successMessage, setSuccessMessage] = useState<string>()
     const [error, setError] = useState<string>()
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState("")
-    const sendEmailCancelment = async () => {
+    const sendEmailCancelment = async (e: FormEvent) => {
+        e.preventDefault()
         setError(undefined)
-        setLoading(true)
-
+        setSuccessMessage(undefined)
         try {
-            
+            setLoading(true)
             const response = await getBilling(email)
             if (response === "error") {
                 return setError('Não encontramos assinaturas ativas em seu email')
@@ -42,12 +43,16 @@ export default function Handler() {
             </div>
                 `
             }
-  
             sendEmail(emailData);
+            setEmail("")
+            setSuccessMessage("assinatura encontrada, confirme o cancelamento pelo email que te enviamos")
         } catch (error) {
             console.error(error)
+
+        } finally {
+            setLoading(false)
         }
-        setLoading(false)
+
 
     }
     return (
@@ -65,6 +70,7 @@ export default function Handler() {
                     Atenciosamente, <strong>Consultoria Nando Tavares</strong>
                 </p>
                 <form
+                    onSubmit={(e) => sendEmailCancelment(e)}
                     className="mt-10"
                 >
                     <h3 className="text-2xl mb-5">
@@ -73,17 +79,22 @@ export default function Handler() {
                     <EmailInput
                         email={email}
                         setEmail={setEmail} />
+                    <ProceedButton
+                        isLoading={loading}
+
+                    />
 
                 </form>
                 <BackButton />
-                <ProceedButton
-                    onClick={sendEmailCancelment}
-                    isLoading={loading}
 
-                />
                 {error &&
-                    <p className="text-red-500  duration-500">
+                    <p className="text-red-500 text-base  duration-500 pt-3 md:text-start text-center">
                         {error}
+                    </p>
+                }
+                {successMessage &&
+                    <p className="text-green-500 text-base duration-500 p-3 md:text-start text-center">
+                        {successMessage}
                     </p>
                 }
             </div>
